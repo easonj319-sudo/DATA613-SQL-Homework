@@ -126,6 +126,18 @@ Find the **top 5 destinations** (`dest`) With the most flights.
 - Your output should include:
   - destination
   - number of flights Sort from the **largest to smallest**.
+```{r}
+dbGetQuery(conn, "
+  SELECT dest AS destination,
+         COUNT(*) AS number_of_flights
+  FROM flights
+  GROUP BY dest
+  ORDER BY number_of_flights DESC
+  LIMIT 5;
+")
+```
+This query groups the flights by destination, counts the number of flights for each destination, sorts the results from largest to smallest, and returns the top 5 destinations.
+  
 
 #### e.
 

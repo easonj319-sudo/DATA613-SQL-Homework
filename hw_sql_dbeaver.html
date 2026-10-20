@@ -2399,6 +2399,25 @@ vertical-align: -.125em;
 <li>number of flights Sort from the <strong>largest to smallest</strong>.</li>
 </ul></li>
 </ul>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT dest AS destination,</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">         COUNT(*) AS number_of_flights</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY dest</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY number_of_flights DESC</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">  LIMIT 5;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  destination number_of_flights
+1         ORD             17283
+2         ATL             17215
+3         LAX             16174
+4         BOS             15508
+5         MCO             14082</code></pre>
+</div>
+</div>
+<p>This query groups the flights by destination, counts the number of flights for each destination, sorts the results from largest to smallest, and returns the top 5 destinations.</p>
 </section>
 <section id="e." class="level4">
 <h4 class="anchored" data-anchor-id="e.">e.</h4>
@@ -2421,7 +2440,7 @@ vertical-align: -.125em;
 <section id="a.-1" class="level4">
 <h4 class="anchored" data-anchor-id="a.-1">a.</h4>
 <p>List the first <strong>10 rows</strong> of the <code>flights</code> table.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="b.-1" class="level4">
 <h4 class="anchored" data-anchor-id="b.-1">b.</h4>
