@@ -82,9 +82,30 @@ This query selects all columns from the flights table and uses LIMIT 10 to displ
 
 Find the **number of flights**
 
+
+
 i.  in the dataset
+```{r}
+dbGetQuery(conn, "
+  SELECT COUNT(*) AS total_flights
+  FROM flights;
+")
+```
+This query counts the total number of flights in the dataset.
+
 
 ii. for each carrier
+```{r}
+dbGetQuery(conn, "
+  SELECT carrier,
+         COUNT(*) AS number_of_flights
+  FROM flights
+  GROUP BY carrier
+  ORDER BY number_of_flights DESC;
+")
+```
+This query groups the flights by carrier and counts the number of flights for each carrier. The results are sorted from the largest to the smallest number of flights.
+
 
 #### c.
 

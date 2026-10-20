@@ -2328,9 +2328,51 @@ vertical-align: -.125em;
 <h4 class="anchored" data-anchor-id="b.">b.</h4>
 <p>Find the <strong>number of flights</strong></p>
 <ol type="i">
-<li><p>in the dataset</p></li>
-<li><p>for each carrier</p></li>
+<li>in the dataset</li>
 </ol>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT COUNT(*) AS total_flights</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  total_flights
+1        336776</code></pre>
+</div>
+</div>
+<p>This query counts the total number of flights in the dataset.</p>
+<ol start="2" type="i">
+<li>for each carrier</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT carrier,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">         COUNT(*) AS number_of_flights</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY carrier</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY number_of_flights DESC;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   carrier number_of_flights
+1       UA             58665
+2       B6             54635
+3       EV             54173
+4       DL             48110
+5       AA             32729
+6       MQ             26397
+7       US             20536
+8       9E             18460
+9       WN             12275
+10      VX              5162
+11      FL              3260
+12      AS               714
+13      F9               685
+14      YV               601
+15      HA               342
+16      OO                32</code></pre>
+</div>
+</div>
+<p>This query groups the flights by carrier and counts the number of flights for each carrier. The results are sorted from the largest to the smallest number of flights.</p>
 </section>
 <section id="c." class="level4">
 <h4 class="anchored" data-anchor-id="c.">c.</h4>
@@ -2368,7 +2410,7 @@ vertical-align: -.125em;
 <section id="a.-1" class="level4">
 <h4 class="anchored" data-anchor-id="a.-1">a.</h4>
 <p>List the first <strong>10 rows</strong> of the <code>flights</code> table.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="b.-1" class="level4">
 <h4 class="anchored" data-anchor-id="b.-1">b.</h4>
