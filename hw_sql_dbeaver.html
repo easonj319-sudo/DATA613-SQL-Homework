@@ -2377,6 +2377,17 @@ vertical-align: -.125em;
 <section id="c." class="level4">
 <h4 class="anchored" data-anchor-id="c.">c.</h4>
 <p>Find the <strong>average departure delay</strong> (<code>dep_delay</code>)</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT AVG(dep_delay) AS average_departure_delay</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  average_departure_delay
+1                12.63907</code></pre>
+</div>
+</div>
+<p>This query calculates the average departure delay for all flights using the AVG() function on the dep_delay column.</p>
 </section>
 <section id="d." class="level4">
 <h4 class="anchored" data-anchor-id="d.">d.</h4>
@@ -2410,7 +2421,7 @@ vertical-align: -.125em;
 <section id="a.-1" class="level4">
 <h4 class="anchored" data-anchor-id="a.-1">a.</h4>
 <p>List the first <strong>10 rows</strong> of the <code>flights</code> table.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="b.-1" class="level4">
 <h4 class="anchored" data-anchor-id="b.-1">b.</h4>

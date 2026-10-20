@@ -110,6 +110,14 @@ This query groups the flights by carrier and counts the number of flights for ea
 #### c.
 
 Find the **average departure delay** (`dep_delay`)
+```{r}
+dbGetQuery(conn, "
+  SELECT AVG(dep_delay) AS average_departure_delay
+  FROM flights;
+")
+```
+This query calculates the average departure delay for all flights using the AVG() function on the dep_delay column.
+
 
 #### d.
 
