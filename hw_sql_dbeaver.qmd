@@ -148,8 +148,28 @@ Create a table showing:
 - average arrival delay (`arr_delay`)
 
 Sort the results from **largest to smallest delay**
+```{r}
+dbGetQuery(conn, "
+  SELECT carrier,
+         AVG(arr_delay) AS average_arrival_delay
+  FROM flights
+  GROUP BY carrier
+  ORDER BY average_arrival_delay DESC;
+")
+
+```
+This query groups the flights by carrier, calculates the average arrival delay for each carrier using AVG(arr_delay), and sorts the results from the largest to the smallest average delay.
+
 
 > You must close the connection when you are done. Use `dbDisconnect()`
+
+```{r}
+dbDisconnect(conn)
+```
+
+
+
+
 
 ### Part II: Answer the following question by running SQL using **DBeaver** with **DuckDB**.
 

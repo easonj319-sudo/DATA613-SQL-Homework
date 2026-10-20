@@ -2427,9 +2427,41 @@ vertical-align: -.125em;
 <li><p>average arrival delay (<code>arr_delay</code>)</p></li>
 </ul>
 <p>Sort the results from <strong>largest to smallest delay</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT carrier,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">         AVG(arr_delay) AS average_arrival_delay</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY carrier</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY average_arrival_delay DESC;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   carrier average_arrival_delay
+1       F9            21.9207048
+2       FL            20.1159055
+3       EV            15.7964311
+4       YV            15.5569853
+5       OO            11.9310345
+6       MQ            10.7747334
+7       WN             9.6491199
+8       B6             9.4579733
+9       9E             7.3796692
+10      UA             3.5580111
+11      US             2.1295951
+12      VX             1.7644644
+13      DL             1.6443409
+14      AA             0.3642909
+15      HA            -6.9152047
+16      AS            -9.9308886</code></pre>
+</div>
+</div>
+<p>This query groups the flights by carrier, calculates the average arrival delay for each carrier using AVG(arr_delay), and sorts the results from the largest to the smallest average delay.</p>
 <blockquote class="blockquote">
 <p>You must close the connection when you are done. Use <code>dbDisconnect()</code></p>
 </blockquote>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(conn)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
 <section id="part-ii-answer-the-following-question-by-running-sql-using-dbeaver-with-duckdb." class="level3">
@@ -2440,7 +2472,7 @@ vertical-align: -.125em;
 <section id="a.-1" class="level4">
 <h4 class="anchored" data-anchor-id="a.-1">a.</h4>
 <p>List the first <strong>10 rows</strong> of the <code>flights</code> table.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(conn, <span class="st">&quot;YOUR SQL HERE&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="b.-1" class="level4">
 <h4 class="anchored" data-anchor-id="b.-1">b.</h4>
