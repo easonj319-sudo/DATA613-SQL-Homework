@@ -177,7 +177,7 @@ dbDisconnect(conn)
 
 #### a.
 
-List the first **10 rows** of the `flights` table.![](images/clipboard-3730747595.png)
+List the first **10 rows** of the `flights` table.![](images/clipboard-1844860042.png)
 
 ``` r
 dbGetQuery(conn, "YOUR SQL HERE")
@@ -191,7 +191,10 @@ Find the **number of flights** for each carrier.
 
 - Your output should include:
   - carrier
+
   - number of flights Sort from the **largest to smallest**.
+
+    ![](images/clipboard-51785657.png)
 
 #### c.
 
