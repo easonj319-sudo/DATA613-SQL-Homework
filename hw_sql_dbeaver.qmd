@@ -202,7 +202,10 @@ Find the **average departure delayby month**
 
 - Your output should include:
   - month
+
   - average departure delay
+
+    ![](images/clipboard-3573871812.png)
 
 #### d.
 
